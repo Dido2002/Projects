@@ -1,60 +1,21 @@
 ﻿using System;
 
-namespace Problem_05
+namespace CourseWork375_2
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
-            int goalForTheDay = int.Parse(Console.ReadLine());
-            int incoming = 0;
-            string haircutType = Console.ReadLine();
-
-            while (haircutType != "closed")
+            int sum = 0;
+            for (int i = 0; i <= 7; i++)
             {
-                string type = Console.ReadLine();
-                switch (haircutType)
+                int number = int.Parse(Console.ReadLine());
+                if (number < 0 || number > 200) 
                 {
-                    case "haircut":
-                        switch (type)
-                        {
-                            case "mens":
-                                incoming += 15;
-                                break;
-                            case "ladies":
-                                incoming += 20;
-                                break;
-                            case "kids":
-                                incoming += 10;
-                                break;
-                        }
-                        break;
-                    case "color":
-                        switch (type)
-                        {
-                            case "touch up":
-                                incoming += 20;
-                                break;
-                            case "full color":
-                                incoming += 30;
-                                break;
-                        }
-                        break;
+                    sum += number;
                 }
-                
-                if (incoming >= goalForTheDay)
-                {
-                    Console.WriteLine("You have reached your target for the day!");
-                    Console.WriteLine($"Earned money: {incoming}lv.");
-                    break;
-                }
-                haircutType = Console.ReadLine();
             }
-            if (incoming < goalForTheDay)
-            {
-                Console.WriteLine($"Target not reached! You need {goalForTheDay - incoming}lv. more.");
-                Console.WriteLine($"Earned money: {incoming}lv.");
-            }
+            Console.WriteLine($"The sum is:{sum}");
         }
     }
 }
